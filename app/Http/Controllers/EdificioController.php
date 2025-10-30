@@ -63,4 +63,9 @@ class EdificioController extends Controller
     {
         //
     }
+
+    public function crearAula(Request $request, Edificio $edificio)
+    {
+        $edificio = Edificio::create($request->all());
+    }
 }

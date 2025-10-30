@@ -18,6 +18,8 @@ Route::get('/bienvenida', function () {
 Route::resource('tarea', TareaController::class);//->middleware('auth');
 Route::resource('aula', AulaController::class)->middleware('auth');
 Route::resource('edificio', EdificioController::class)->middleware('auth');
+Route::post('/edificio/{edificio}/crearAula', [EdificioController::class, 'crearAula'])->middleware('auth');
+
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
