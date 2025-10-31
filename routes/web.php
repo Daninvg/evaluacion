@@ -3,6 +3,7 @@
 use App\Http\Controllers\AulaController;
 use App\Http\Controllers\EdificioController;
 use App\Http\Controllers\TareaController;
+use App\Models\Edificio;
 use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Features;
 use Livewire\Volt\Volt;
@@ -18,8 +19,10 @@ Route::get('/bienvenida', function () {
 Route::resource('tarea', TareaController::class);//->middleware('auth');
 Route::resource('aula', AulaController::class)->middleware('auth');
 Route::resource('edificio', EdificioController::class)->middleware('auth');
-Route::post('/edificio/{edificio}/crearAula', [EdificioController::class, 'crearAula'])->middleware('auth');
-
+//Route::post('/edificio/{edificio}', [EdificioController::class, 'crearAula'])->name('edificio.agregarAula');
+Route::post('/edificio/{edificio}/crearAula', function(Edificio $edificio){
+    return 'Edificio'.$edificio->id;
+})->name('edificio.crearAula');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])

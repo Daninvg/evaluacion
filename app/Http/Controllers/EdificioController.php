@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Models\Edificio;
+use App\Models\Aula;
 use App\Http\Requests\StoreEdificioRequest;
 use App\Http\Requests\UpdateEdificioRequest;
 
